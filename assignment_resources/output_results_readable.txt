@@ -1,0 +1,20 @@
+Results for matrix P(1)
+5153
+3148
+2793
+4761
+4246
+2025
+2191
+6045
+9882
+3790
+3533
+10172
+3444
+1887
+1977
+3267
+Average value of diagonal elements of matrix = 3.494500e+03
+Maximum value in matrix = 10172, hex(0x027bc)
+*********
