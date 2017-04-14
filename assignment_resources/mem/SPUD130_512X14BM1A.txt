@@ -1,0 +1,198 @@
+/******************************************************************************
+
+             Synchronous Via-1 ROM Compiler 
+
+                   UMC 0.13um High Speed Logic Process 
+   __________________________________________________________________________
+
+
+   (C) Copyright 2002-2006 Faraday Technology Corp. All Rights Reserved.
+   
+   This source code is an unpublished work belongs to Faraday Technology
+   Corp.  It is considered a trade secret and is not to be divulged or
+   used by parties who have not received written authorization from
+   Faraday Technology Corp.
+   
+   Faraday's home page can be found at:
+   http:/www.faraday-tech.com
+   __________________________________________________________________________
+   
+
+       Module Name      : SPUD130_512X14BM1A
+       Words            : 512
+       Bits             : 14
+       Aspect Ratio     : 1
+       Output Loading   : 0.01  (pf)
+       Data Slew        : 0.016    (ns)
+       CK Slew          : 0.016      (ns)
+       Power Ring Width : 10  (um)
+  ______________________________________________________________________________
+
+       Library          : FSC0U_D
+       Memaker          : 200701.1.1
+       Date             : 2009/10/23 10:39:16
+   
+******************************************************************************/
+
+
+
+   Description:
+
+     The FSC0U_D_SP is a synchronous via-1 Programmable ROM. It was created
+     according to UMC's 0.13um 1P8M Fusion(HS+LL) logic process design rules and can be
+     incorporated with Faraday's 0.13um standard cell masterchips.
+     This product allows different combinations of words, bits,
+     and aspect ratios to be used in generating the most desirable configurations.
+
+     By requesting the desired size and timing constraints, the FSC0U_D_SP
+     compiler will provide suitable synchronous ROM layout instances in seconds.
+     It can automatically generate data sheets, Verilog/VHDL behavioral
+     simulation models, SCS or Viewlogic symbols, place & route models,
+     and test patterns for use in the ASIC designs. The duty cycle length
+     can be neglected as long as the setup/hold time and minimum high/low
+     pulse widths are satisfied.
+     This allows the flexibility of CK falling edge during each operation.
+
+
+
+
+   Features:
+
+       - Synchronous read operation
+       - Fully customized layout density
+       - High density, available for 1.2V +/- 10%        
+       - Automatic power down to eliminate DC current 
+       - Clocked address inputs and CS to ROM at CK rising edge
+       - Via-1 layer programmable codes
+       - Verilog / VHDL timing / simulation model generator
+       - SPICE netlist generator
+       - GDSII layout database
+       - Memory compiler preview UI (Memaker)
+       - BIST circuitry supported
+       - Multi-block options for the best aspect ratio
+      
+
+   Input Pins:
+ 
+       Pin Name   Capacitance Descriptions
+ 
+       A[8:0]     0.006 pF    Address signals of width 9
+       CK         0.096 pF    Clock signal for addresses and CS 
+       CS         0.046 pF    Chip select, active high
+       OE         0.011 pF    Output enable signal, active high
+
+   Output Pins: 
+
+       Pin Name   Capacitance Descriptions
+     
+       DO[13:0]   0.019 pF    Output data of width 14 (tri-state)
+
+
+   Area Information: 
+
+       ROM area = 230.400 um (Width) x 96.000 um (Height) = 0.022 mm^2
+       ROM area = 17280 cell units in FSC0U_D
+       ROM area = 5400 equivalent Gate Count in FSC0U_D
+       Power ring width = 10 um
+
+
+   Process metal options:
+
+       
+       ------------------------------------------------------------
+       |Five (5) metal layers |  M5 (thick) + M1 ~ M4 (thin)      |
+       |-----------------------------------------------------------
+       |Six (6) metal layers  |  M5 ~ M6 (thick) + M1 ~ M4 (thin) |
+       |-----------------------------------------------------------
+       |Six (6) metal layers  |  M6 (thick) + M1 ~ M5 (thin)      |
+       |-----------------------------------------------------------
+       |Six (6) metal layers  |  M1 ~ M6 (thin)                   |
+       |-----------------------------------------------------------
+       |Seven (7) metal layers|  M6 ~ M7 (thick) + M1 ~ M5 (thin) |
+       |-----------------------------------------------------------
+       |Seven (7) metal layers|  M7 (thick) + M1 ~ M6 (thin)      |
+       |-----------------------------------------------------------
+       |Eight (8) metal layers|  M7 ~ M8 (thick) + M1 ~ M6 (thin) |
+       |-----------------------------------------------------------
+
+
+   Recommended operating conditions:
+
+       Symbol	Min.	Recommended	Max.	Units
+       VCC	1.08	1.20		1.32	V
+       TJ	125	25		-40	C
+
+       Notes:
+         1. VCC: Power supply for memory block
+         2. TJ : Junction operating temperature
+
+
+
+   Operating Conditions:
+
+       Corner           Process Voltage(v)  Temperature(C) 
+       BC		PFNF	1.32		-40
+       TC		PTNT	1.2		25
+       WC		PSNS	1.08		125
+
+   Clock Slew Rate & Loading Look Up Table (3x5):
+       Index                    1      2      3      4      5
+       Clock Slew (ns)*     0.016  0.400  0.800
+       Output Loading(pF)   0.010  0.050  0.150  0.500  1.300
+
+   Clock & Data Slew Rate Look Up Table (3x3):
+       Index                    1      2      3
+       Data  Slew (ns)*     0.016  0.400  0.800
+       Clock Slew (ns)*     0.016  0.400  0.800
+
+       * 10% ~ 90%
+
+
+   Power Consumption (Typical Condition):
+
+       Standby current =   1.000 uA (CS = 0) 
+       DC current      =   1.000 uA (CS = 1)
+       Max AC current  =   0.006 mA/MHz (refer to notes) 
+       Total current   = AC current * Freq + DC current   
+       Notes:
+        1. All cycles are active
+        2. All address bits switching
+        3. Worst of read operation
+ 
+ 
+   Timing Information:
+
+       - CK input slope = 0.016 ns.
+       - Address input slope = 0.016 ns.
+       - All timing parameters are measured from 50% of input.
+       - Output reference voltage "H" = 50% of VDD, "L" = 50% of VDD.
+       - Output loading = 0.01 pF.
+       - Delay timing parameters in nano second.
+
+       symbol	BC	TC	WC
+
+        taa	1.83	2.82	4.78	
+        toh	0.85	1.31	2.24	
+        trc	1.69	2.63	4.48	
+        tcss	0.29	0.44	0.76	
+        tcshr	0.10	0.10	0.10	
+        tah	0.10	0.10	0.10	
+        tas	0.22	0.32	0.52	
+        thpw	0.56	0.88	1.49	
+        tlpw	0.56	0.88	1.49	
+        toe	0.50	0.73	1.20	
+        toz	0.42	0.61	0.98	
+
+       symbol   Descriptions
+        taa     Address access time from CK rising
+        toh     Output data hold time after CK rising
+        trc     Read cycle time
+        tcss    CS setup time before CK rising
+        tcshr   CS hold time after CK rising in read cycle
+        tah     Address hold time after CK rising
+        tas     Address setup time before CK rising
+        thpw    Clock high pulse width
+        tlpw    Clock low pulse width
+        toe     Output data valid after OE rising
+        toz     Output data go to Hi-Z ater OE falling
+
